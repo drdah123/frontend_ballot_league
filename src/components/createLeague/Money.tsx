@@ -2,11 +2,8 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { SvgXml } from 'react-native-svg';
 import DiamondBox from './DiamondBox';
-import IMPORTS from '../../../repeated_items/index';
+import { fonts, Colors } from '@abdlarahman/ui-components';
 import { icons } from './icons';
-
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
 
 interface Money {
   visible: boolean;

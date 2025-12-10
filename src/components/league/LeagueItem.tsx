@@ -7,27 +7,26 @@ import {
   Stop,
   Text as SvgText,
 } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
-
 import React, { useMemo } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
 // @ts-ignore
 import Countdown from 'react-native-countdown-timer-hooks';
 import { LeagueType } from '../../types/league';
-import { LeagueTypeType } from '@/repeated_items/types/Leagues';
+import {
+  LinearButton2,
+  fonts,
+  Colors,
+  backgroundsImages,
+  Display,
+  Images,
+  cardsImages,
+  sharedIcons,
+} from '@abdlarahman/ui-components';
 
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
-const { icons } = IMPORTS.CHAT_ICONS;
-const LeagueIcons = IMPORTS.LEAGUE_ICONS;
-const sharedIcons = IMPORTS.SHARED_ICONS;
-const backgroundsImages = IMPORTS.BACKGROUNDS_IMAGES;
-const { setWidth, setHeight } = IMPORTS.DISPLAY;
-const Images = IMPORTS.IMAGES;
-const cardsImages = IMPORTS.CARDS_IMAGES;
-const changeLeagueRound = IMPORTS.CHANGE_LEAGUE_ROUND;
+type LeagueTypeType = any;
+
+const { setWidth, setHeight } = Display;
 
 export default function LeagueItem({
   type,

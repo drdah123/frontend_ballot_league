@@ -2,12 +2,8 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { BlurView } from 'expo-blur';
 import { useState, useRef, useEffect, useCallback, memo } from 'react';
-import IMPORTS from '../../../repeated_items/index';
+import { fonts, Colors, LinearButton } from '@abdlarahman/ui-components';
 import { CreateLeagueInput } from '../../types/league';
-
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
-const LinearButton = IMPORTS.LINEAR_BUTTON;
 
 // Memoized TimeItem component for better performance
 const TimeItem = memo(

@@ -6,9 +6,7 @@ import {
   Stop,
   Text as SvgText,
 } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
-
-const Colors = IMPORTS.COLORS;
+import { Colors } from '@abdlarahman/ui-components';
 
 interface GradientTextProps {
   text: string;

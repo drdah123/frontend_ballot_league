@@ -1,11 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
+import { Colors, fonts, LinearButton2 } from '@abdlarahman/ui-components';
 import { icons } from './icons';
-
-const fonts = IMPORTS.FONTS;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const Colors = IMPORTS.COLORS;
 interface DiamondBoxProps {
   diamondAmount: number;
   price: string;

@@ -10,7 +10,6 @@ import {
 import React, { useState } from 'react';
 import { SvgXml } from 'react-native-svg';
 import { BlurView } from 'expo-blur';
-import IMPORTS from '../../../repeated_items/index';
 import type {
   ActionButtonsType,
   ChatMessage,
@@ -18,31 +17,34 @@ import type {
 } from '../../../repeated_items/types/Chat';
 import { useMutation } from '@apollo/client';
 import { SEND_MESSAGE } from '../../schema/league';
-import { useToast } from 'react-native-toast-notifications';
+import {
+  Colors,
+  fonts,
+  Images,
+  chatStyles,
+  friendsSvgs,
+  Messages,
+} from '@abdlarahman/ui-components';
 
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const styles = IMPORTS.CHAT_STYLES;
-const Images = IMPORTS.IMAGES;
-const { svgs } = IMPORTS.FRIENDS_SVG;
-const Messages = IMPORTS.CHAT_MESSAGES;
-const { useUserCardModal } = IMPORTS.USER_CARD_MODAL_CONTEXT;
-
-const { useOnlineContext } = IMPORTS.ONLINE_CONTEXT;
+const styles = chatStyles;
+const svgs = friendsSvgs;
 export default function Chat({
   leagueId,
   selectedTab,
+  leagueChat,
+  setLeagueChat,
+  user,
 }: {
   leagueId: string;
   selectedTab: 'overview' | 'plan' | 'chat';
+  leagueChat: ChatPageSub[] | null;
+  setLeagueChat: React.Dispatch<React.SetStateAction<ChatPageSub[] | null>>;
+  user: any;
 }) {
-  const toast = useToast();
   const [message, setMessage] = useState('');
   const [actionButtonUser, setActionButtonUser] =
     useState<ActionButtonsType>(null);
-  const { showUserCard } = useUserCardModal();
-  const { leagueChat, setLeagueChat } = useOnlineContext();
-  function setChat(value: React.SetStateAction<ChatMessage[] | undefined>) {
+  const setChat: React.Dispatch<React.SetStateAction<any[] | undefined>> = (value) => {
     // Handle both function and direct value forms of setState
     if (typeof value === 'function') {
       // If it's a function, we need to call it with current chat state
@@ -50,12 +52,20 @@ export default function Chat({
         leagueChat?.map((chatPageSub) => ({
           _id: chatPageSub._id,
           text: chatPageSub.text,
-          sender: chatPageSub.sender,
+          sender: {
+            _id: chatPageSub.sender._id,
+            name: chatPageSub.sender.name,
+            pic: chatPageSub.sender.pic,
+          },
         })) || [];
       const newChat = value(currentChat);
       if (newChat && newChat.length > 0) {
-        const editedChat: ChatPageSub[] = newChat.map((message) => ({
+        const editedChat: ChatPageSub[] = newChat.map((message: any) => ({
           ...message,
+          sender: {
+            ...message.sender,
+            sub: leagueChat?.find((c) => c._id === message._id)?.sender.sub || { is: false },
+          },
           state: 'send_message' as const,
         }));
         setLeagueChat((prev) => {
@@ -65,8 +75,12 @@ export default function Chat({
       }
     } else if (value && value.length > 0) {
       // Direct value assignment - replace all chats
-      const editedChat: ChatPageSub[] = value.map((message) => ({
+      const editedChat: ChatPageSub[] = value.map((message: any) => ({
         ...message,
+        sender: {
+          ...message.sender,
+          sub: leagueChat?.find((c) => c._id === message._id)?.sender.sub || { is: false },
+        },
         state: 'send_message' as const,
       }));
       setLeagueChat((prev) => {
@@ -74,9 +88,9 @@ export default function Chat({
         return [...editedChat];
       });
     }
-  }
+  };
   const [sendMessage] = useMutation<
-    MediaKeyMessageEvent,
+    { sendMessage: { _id: string } },
     {
       leagueId: string;
       content: string;
@@ -93,12 +107,6 @@ export default function Chat({
         });
         setMessage(''); // Clear the input field after sending the message
       } catch (error) {
-        toast.show('Error sending message', {
-          type: 'danger',
-          placement: 'top',
-          duration: 3000,
-          animationType: 'slide-in',
-        });
         console.error('Error sending message:', error);
       }
     }
@@ -133,6 +141,7 @@ export default function Chat({
             setActionButtonUser={setActionButtonUser}
             actionButtonUser={actionButtonUser}
             setChat={setChat}
+            user={user}
           />
         ) : (
           <View
@@ -160,7 +169,7 @@ export default function Chat({
                 }}
               >
                 <TouchableOpacity onPress={handleSendMessage}>
-                  <SvgXml xml={svgs.send} />
+                  <SvgXml xml={svgs[0].send} />
                 </TouchableOpacity>
                 <TextInput
                   placeholder="رسالتك..."

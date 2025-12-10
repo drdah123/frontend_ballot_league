@@ -10,7 +10,14 @@ import React, { useState, useCallback } from 'react';
 import { ArrowRight2, SearchNormal1 } from 'iconsax-react-native';
 import { SvgXml } from 'react-native-svg';
 import { BlurView } from 'expo-blur';
-import IMPORTS from '../../repeated_items/index';
+import {
+  Colors,
+  fonts,
+  Images,
+  commonStyles,
+  chatStyles,
+  friendsSvgs,
+} from '@abdlarahman/ui-components';
 import Overview from '../components/league/Overview';
 import Plan from '../components/league/Plan';
 import GradientText from '../components/league/GradientText ';
@@ -24,21 +31,25 @@ import { LeagueType, LeaveLeagueResponse } from '../types/league';
 import Chat from '../components/league/Chat';
 import { useMutation } from '@apollo/client';
 import { LEAVE_LEAGUE } from '../schema/league';
-import { useToast } from 'react-native-toast-notifications';
+import { ToastType } from 'react-native-toast-notifications';
 
-const { useOnlineContext } = IMPORTS.ONLINE_CONTEXT;
-const { icons } = IMPORTS.CHAT_ICONS;
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const { commonStyles } = IMPORTS.COMMON_STYLES;
-const styles = IMPORTS.CHAT_STYLES;
-const { svgs } = IMPORTS.FRIENDS_SVG;
-const Images = IMPORTS.IMAGES;
+const styles = chatStyles;
+const svgs = friendsSvgs;
 
-export default function League() {
+export default function League({
+  league,
+  setLeague,
+  leagueChat,
+  setLeagueChat,
+  toast,
+}: {
+  league: LeagueType | null;
+  setLeague: React.Dispatch<React.SetStateAction<LeagueType | null>>;
+  leagueChat: any[] | null;
+  setLeagueChat: React.Dispatch<React.SetStateAction<any[] | null>>;
+  toast?: ToastType;
+}) {
   const params = useLocalSearchParams();
-  const { league, setLeague, setLeagueChat } = useOnlineContext();
-  const toast = useToast();
   const [leaveLeague] = useMutation<
     LeaveLeagueResponse,
     {
@@ -81,7 +92,7 @@ export default function League() {
       if (data?.leaveLeague.success) console.log('Left league successfully');
     } catch (error) {
       console.error('Error logging out of league:', error);
-      toast.show('Error logging out of league', { type: 'danger' });
+      toast?.show('Error logging out of league', { type: 'danger' });
     }
   }
   function getColoredIcon(xmlString: any, color: any) {
@@ -234,7 +245,12 @@ export default function League() {
         ) : null}
 
         <Overview league={league} selectedTab={selectedTab} />
-        <Chat leagueId={league._id} selectedTab={selectedTab} />
+        <Chat
+          leagueId={league._id}
+          selectedTab={selectedTab}
+          leagueChat={leagueChat}
+          setLeagueChat={setLeagueChat}
+        />
         <BlurView
           intensity={5}
           tint="dark"

@@ -8,14 +8,10 @@ import {
 } from 'react-native';
 import { BlurView } from 'expo-blur';
 import FeatureBox from './FeatureBox';
-import IMPORTS from '../../../repeated_items/index';
+import { fonts, Colors, Display } from '@abdlarahman/ui-components';
 import { icons } from './icons';
 import { CreateLeagueInput } from '../../types/league';
 import { LeagueFeature, ModalKeys } from '../../types/components/createLeague';
-
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
-const Display = IMPORTS.DISPLAY;
 
 interface FeaturesProps {
   league: CreateLeagueInput;

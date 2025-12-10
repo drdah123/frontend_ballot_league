@@ -2,15 +2,15 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { SvgXml } from 'react-native-svg';
 import React, { useState, useMemo, SetStateAction, Dispatch } from 'react';
-import IMPORTS from '../../../repeated_items/index';
+import {
+  fonts,
+  Colors,
+  LinearButton2,
+  sharedIcons,
+  SelectRoom,
+} from '@abdlarahman/ui-components';
 import { icons } from './icons';
 import { CreateLeagueInput } from '../../types/league';
-
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
-const SelectRoom = IMPORTS.CREATE_ROOM_SELECT;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const sharedIcons = IMPORTS.SHARED_ICONS;
 import {
   Select,
   SelectPlaySpeed,

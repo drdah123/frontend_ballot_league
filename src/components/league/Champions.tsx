@@ -1,13 +1,18 @@
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
-import type { LeagueTypeType } from '../../../repeated_items/types/Leagues';
+import {
+  fonts,
+  Colors,
+  LinearButton2,
+  Display,
+  getGraphQLErrors,
+  friendsSvgs,
+  chatIcons,
+} from '@abdlarahman/ui-components';
 
-const fonts = IMPORTS.FONTS;
-const { svgs } = IMPORTS.FRIENDS_SVG;
-const Colors = IMPORTS.COLORS;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const { icons } = IMPORTS.CHAT_ICONS;
+type LeagueTypeType = any;
+const svgs = friendsSvgs;
+const icons = chatIcons;
 import LeagueItem from './LeagueItem';
 import {
   GET_LEAGUES,
@@ -17,13 +22,10 @@ import {
 import { useApolloClient, useMutation, useQuery } from '@apollo/client';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { LeagueType } from '../../types/league';
-import { useToast } from 'react-native-toast-notifications';
 import { MessageWithSuccess } from '../../types/ApiTypes';
 import CreateLeagueButton from './CreateLeagueButton';
-const { useGeneralContext } = IMPORTS.GENERAL_CONTEXT;
 import { useCallback } from 'react';
-const Display = IMPORTS.DISPLAY;
-import getGraphQLErrors from '../../../repeated_items/utils/getGraphqlErrors';
+import { ToastType } from 'react-native-toast-notifications';
 
 type LeagueData = {
   getLeagues: LeagueType[];
@@ -32,8 +34,18 @@ type RegisterInLeagueVariables = {
   leagueId: string;
   password?: string;
 };
-export default function Champions({ type }: { type: LeagueTypeType['value'] }) {
-  const toast = useToast();
+export default function Champions({
+  type,
+  toast,
+  useGeneralContext,
+}: {
+  type: LeagueTypeType['value'];
+  toast?: ToastType;
+  useGeneralContext: () => {
+    isConnectedToTabs: boolean;
+    setIsConnectedToTabs: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+}) {
   const { data } = useQuery<LeagueData, { type: LeagueTypeType['value'] }>(
     GET_LEAGUES,
     {
@@ -85,7 +97,7 @@ export default function Champions({ type }: { type: LeagueTypeType['value'] }) {
         });
       }
     } catch (error) {
-      toast.show('خطأ في الانضمام إلى الدوري', {
+      toast?.show('خطأ في الانضمام إلى الدوري', {
         type: 'danger',
       });
       console.error('Error joining league:', error);

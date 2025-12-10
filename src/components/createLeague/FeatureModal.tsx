@@ -9,14 +9,14 @@ import {
   TextInput,
 } from 'react-native';
 import { BlurView } from 'expo-blur';
-import IMPORTS from '../../../repeated_items/index';
+import {
+  Colors,
+  fonts,
+  LinearButton2,
+  backgroundsImages,
+  cardsImages,
+} from '@abdlarahman/ui-components';
 import FeatureCard from './FeatureCard';
-
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const backgroundsImages = IMPORTS.BACKGROUNDS_IMAGES;
-const cardsImages = IMPORTS.CARDS_IMAGES;
 import {
   LeagueFeature,
   ModalData,

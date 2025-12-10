@@ -17,7 +17,6 @@ import WinnerAward from '../components/createLeague/WinnerAward';
 import Features from '../components/createLeague/Features';
 import Money from '../components/createLeague/Money';
 import LeagueSettingsModal2 from '../components/createLeague/LeagueSettingsModal2';
-import IMPORTS from '../../repeated_items/index';
 import { icons } from '../components/createLeague/icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { CreateLeagueInput, Cup, LeagueType } from '../types/league';
@@ -28,13 +27,15 @@ import {
   GET_FEATURES,
   GET_TITLES,
 } from '../schema/league';
-import type { Achievement as Title } from '../../repeated_items/types/Profile';
+import type { UserDataType } from '@abdlarahman/ui-components';
 import FeatureModal from '../components/createLeague/FeatureModal';
 import AlertFeature from '../components/createLeague/AlertFeature';
-import type { RoomBackgroundType } from '../../repeated_items/types/Store';
-import { useSelector } from 'react-redux';
-import type { UserDataType } from '../../repeated_items/reducers/GeneralReducer';
-import { useToast } from 'react-native-toast-notifications';
+// import { useSelector } from 'react-redux'; // Should be passed as prop
+// import { useToast } from 'react-native-toast-notifications'; // Should be added to dependencies
+
+// Type definitions that should be passed from parent or defined locally
+type Title = any; // Achievement type
+type RoomBackgroundType = any;
 import {
   LeagueFeature,
   ModalData,
@@ -42,26 +43,31 @@ import {
   SetLeagueHandler,
 } from '../types/components/createLeague';
 import VoiceChatModal from '../components/createLeague/VoiceChatModal';
-const AppBlur = IMPORTS.APP_BLUR;
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const Images = IMPORTS.IMAGES;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const cardsImages = IMPORTS.CARDS_IMAGES;
-const backgroundsImages = IMPORTS.BACKGROUNDS_IMAGES;
-const TwoCards = IMPORTS.TWO_CARDS;
-const sharedIcons = IMPORTS.SHARED_ICONS;
-const Header = IMPORTS.HEADER;
-const getGraphQLErrors = IMPORTS.GET_GRAPHQL_ERRORS;
-const changeLevelsToAR = IMPORTS.CHANGE_LEVELS_TO_AR;
-export default function CreateLeague() {
+import {
+  AppBlur,
+  Colors,
+  fonts,
+  Images,
+  LinearButton2,
+  cardsImages,
+  backgroundsImages,
+  TwoCards,
+  changeLevelsToAR,
+  Header,
+  sharedIcons,
+  getGraphQLErrors,
+} from '@abdlarahman/ui-components';
+import { ToastType } from 'react-native-toast-notifications';
+export default function CreateLeague({
+  user,
+  toast,
+}: {
+  user: UserDataType;
+  toast?: ToastType;
+}) {
   const router = useRouter();
-  const toast = useToast();
   const { data: cupsData, loading } = useQuery<{ getCups: Cup[] }>(GET_CUPS); // Placeholder for any GraphQL queries if needed
-  const user = useSelector<any, UserDataType>(
-    // @ts-ignore
-    (state) => state.generalState.userData
-  );
+
   const { data } = useQuery<{
     getTitles: Title[];
   }>(GET_TITLES);
@@ -200,27 +206,27 @@ export default function CreateLeague() {
 
   async function createLeagueHandler() {
     if (league.name.length < 3 || league.name.length > 20 || !league.name)
-      return toast.show('يجب أن يكون اسم الدوري بين 3-20 حرفًا', {
+      return toast?.show('يجب أن يكون اسم الدوري بين 3-20 حرفًا', {
         type: 'danger',
       });
     if (league.prizes.winnerPrize <= 0)
-      return toast.show('يجب تحديد جائزة للمركز الأول', { type: 'danger' });
+      return toast?.show('يجب تحديد جائزة للمركز الأول', { type: 'danger' });
     if (league.prizes.winnerPrize < 1000)
-      return toast.show('يجب أن تكون جائزة المركز الأول 1000 أو أكثر', {
+      return toast?.show('يجب أن تكون جائزة المركز الأول 1000 أو أكثر', {
         type: 'danger',
       });
     if (
       league.prizes.secondWinnerPrize &&
       league.prizes.secondWinnerPrize < 1000
     )
-      return toast.show('يجب أن تكون جائزة المركز الثاني 1000 أو أكثر', {
+      return toast?.show('يجب أن تكون جائزة المركز الثاني 1000 أو أكثر', {
         type: 'danger',
       });
     if (
       league.prizes.secondWinnerPrize &&
       league.prizes.secondWinnerPrize >= league.prizes.winnerPrize
     )
-      return toast.show(
+      return toast?.show(
         'يجب أن تكون جائزة المركز الاول أكبر من جائزة المركز الثاني',
         { type: 'danger' }
       );
@@ -231,7 +237,7 @@ export default function CreateLeague() {
       const response = await createLeague({ variables: { input: league } });
       console.log(`🚀 ~ createLeagueHandler ~ response:`, response);
       if (response.data?.createLeague) {
-        toast.show('تم إنشاء الدوري بنجاح', { type: 'success' });
+        toast?.show('تم إنشاء الدوري بنجاح', { type: 'success' });
         router.push({
           pathname: 'League',
           params: {
@@ -239,7 +245,7 @@ export default function CreateLeague() {
           },
         });
       } else {
-        toast.show('فشل إنشاء الدوري', { type: 'danger' });
+        toast?.show('فشل إنشاء الدوري', { type: 'danger' });
       }
     } catch (error) {
       console.log(`🚀 ~ createLeagueHandler ~ error:`, error);
@@ -277,7 +283,7 @@ export default function CreateLeague() {
         }
       }
 
-      toast.show('فشل إنشاء الدوري', { type: 'danger' });
+      toast?.show('فشل إنشاء الدوري', { type: 'danger' });
     }
   }
   const modalsData: ModalData[] | undefined = useMemo(() => {
@@ -913,6 +919,7 @@ export default function CreateLeague() {
           onClose={() => setModalsHandler('isModalVisible', false)}
           league={league}
           setLeague={setLeagueHandler}
+          LinearButton2={LinearButton2 as any}
         />
         <TimeSet
           league={league}

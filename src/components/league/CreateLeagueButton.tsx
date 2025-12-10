@@ -1,11 +1,8 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import IMPORTS from '../../../repeated_items/index';
+import { Colors, Display, fonts, AppBlur } from '@abdlarahman/ui-components';
 
-const Colors = IMPORTS.COLORS;
-const { setWidth, setHeight } = IMPORTS.DISPLAY;
-const fonts = IMPORTS.FONTS;
-const AppBlur = IMPORTS.APP_BLUR;
+const { setWidth, setHeight } = Display;
 
 export default function CreateLeagueButton({
   type,

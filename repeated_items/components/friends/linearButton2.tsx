@@ -21,7 +21,7 @@ interface BasicProps {
   end?: { x: number; y: number };
   locations?: number[];
 }
-interface ChildrenProps extends BasicProps {
+export interface ChildrenProps extends BasicProps {
   children: ReactNode;
 }
 interface TextProps extends BasicProps {

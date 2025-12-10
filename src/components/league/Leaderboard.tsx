@@ -2,15 +2,21 @@ import React, { useCallback, useState } from 'react';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import { useFocusEffect } from 'expo-router/build/exports';
-import IMPORTS from '../../../repeated_items/index';
 import CreateLeagueButton from './CreateLeagueButton';
-import type { LeagueTypeType } from '../../../repeated_items/types/Leagues';
+import { Colors, fonts, friendsSvgs } from '@abdlarahman/ui-components';
 
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const { svgs } = IMPORTS.FRIENDS_SVG;
-const { useGeneralContext } = IMPORTS.GENERAL_CONTEXT;
-function Leaderboard({ type }: { type: LeagueTypeType['value'] }) {
+type LeagueTypeType = any;
+const svgs = friendsSvgs;
+function Leaderboard({
+  type,
+  useGeneralContext,
+}: {
+  type: LeagueTypeType['value'];
+  useGeneralContext(): {
+    isConnectedToTabs: boolean;
+    setIsConnectedToTabs: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+}) {
   const [more, setMore] = useState(false);
   const { setIsConnectedToTabs } = useGeneralContext();
   useFocusEffect(

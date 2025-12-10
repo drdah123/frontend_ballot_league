@@ -1,12 +1,8 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Eye } from 'iconsax-react-native';
-import IMPORTS from '../../../repeated_items/index';
+import { Colors, fonts, Images } from '@abdlarahman/ui-components';
 import { ApiMatch } from '../../types/league';
-
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const Images = IMPORTS.IMAGES;
 
 interface DynamicComponentProps {
   scenario: 1 | 2 | 3;

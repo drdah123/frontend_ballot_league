@@ -9,11 +9,9 @@ import {
   Dimensions,
 } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
+import { Colors, fonts, friendsSvgs } from '@abdlarahman/ui-components';
 
-const { svgs } = IMPORTS.FRIENDS_SVG;
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
+const svgs = friendsSvgs;
 
 const { width } = Dimensions.get('window');
 

@@ -1,21 +1,20 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { User } from 'iconsax-react-native';
 import { SvgXml } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
+import {
+  fonts,
+  Colors,
+  LinearButton2,
+  Mix,
+  changeLevelsToAR,
+  Display,
+  AvatarWith4Cards,
+  sharedIcons,
+} from '@abdlarahman/ui-components';
 import GradientText from './GradientText ';
 import { LeagueType } from '../../types/league';
 
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const { icons } = IMPORTS.CHAT_ICONS;
-const { svgs } = IMPORTS.FRIENDS_SVG;
-const styles = IMPORTS.FRIENDS_INDEX;
-const Mix = IMPORTS.MIX;
-const changeLevelsToAR = IMPORTS.CHANGE_LEVELS_TO_AR;
-const sharedIcons = IMPORTS.SHARED_ICONS;
-const { setWidth } = IMPORTS.DISPLAY;
-const AvatarWith4Cards = IMPORTS.AVATAR_WITH_4_CARDS;
+const { setWidth } = Display;
 
 export default function Overview({
   league,

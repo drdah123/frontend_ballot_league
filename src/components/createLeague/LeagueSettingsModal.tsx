@@ -1,20 +1,28 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, TextProps } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { SvgXml } from 'react-native-svg';
-import { useState, useEffect } from 'react';
-import IMPORTS from '../../../repeated_items/index';
+import { useState, useEffect, ReactNode } from 'react';
+import { fonts, Colors, sharedIcons } from '@abdlarahman/ui-components';
 import { icons } from './icons';
 import { CreateLeagueInput } from '../../types/league';
-
-const fonts = IMPORTS.FONTS;
-const Colors = IMPORTS.COLORS;
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const sharedIcons = IMPORTS.SHARED_ICONS;
 import {
   ModalKeys,
   Select,
   SetLeagueHandler,
 } from '../../types/components/createLeague';
+
+export interface LinearButton2Props {
+  text?: string;
+  textStyles?: TextProps['style'];
+  onPress?: () => void;
+  containerStyle?: any;
+  linearStyle?: any;
+  colors?: string[];
+  start?: { x: number; y: number };
+  end?: { x: number; y: number };
+  locations?: number[];
+  children?: ReactNode;
+}
 
 interface LeagueSettingsModalProps {
   visible: boolean;
@@ -22,6 +30,7 @@ interface LeagueSettingsModalProps {
   league: CreateLeagueInput;
   setLeague: SetLeagueHandler;
   setModalsHandler: (key: ModalKeys, value: boolean) => void;
+  LinearButton2: (props: LinearButton2Props) => React.JSX.Element;
 }
 
 const maxSeatsOptions: Select[] = [
@@ -54,6 +63,7 @@ export default function LeagueSettingsModal({
   league: { roundType, maxSeats, startTime },
   setLeague,
   setModalsHandler,
+  LinearButton2,
 }: LeagueSettingsModalProps) {
   const [activeOption, setActiveOption] = useState<'instant' | 'scheduled'>(
     startTime !== 'instant' ? 'scheduled' : 'instant'

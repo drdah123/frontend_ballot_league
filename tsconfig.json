@@ -16,10 +16,12 @@
     "outDir": "./dist",
     "noEmit": false,
     "baseUrl": ".",
+    "types": ["react-native"],
     "paths": {
       "@/*": ["./*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"],
+  "extends": "expo/tsconfig.base"
 }

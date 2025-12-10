@@ -1,13 +1,13 @@
 import { View, Text, Pressable, Image } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
+import {
+  Colors,
+  fonts,
+  TwoCards,
+  cardsImages,
+  sharedIcons,
+} from '@abdlarahman/ui-components';
 import { CreateLeagueInput } from '../../types/league';
-
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const sharedIcons = IMPORTS.SHARED_ICONS;
-const TwoCards = IMPORTS.TWO_CARDS;
-const cardsImages = IMPORTS.CARDS_IMAGES;
 
 interface FeatureCardProps {
   id: string;

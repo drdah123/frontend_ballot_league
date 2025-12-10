@@ -13,13 +13,11 @@ import Animated, {
   clamp,
   withSpring,
 } from 'react-native-reanimated';
-import IMPORTS from '../../../repeated_items/index';
+import { Colors, fonts, chatStyles } from '@abdlarahman/ui-components';
 import Match from './Match';
 import { ApiMatch, IMatch } from '../../types/league';
 
-const styles = IMPORTS.CHAT_STYLES;
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
+const styles = chatStyles;
 
 // Constants
 const TOURNAMENT_STAGES = {

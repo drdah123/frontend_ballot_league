@@ -1,11 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import IMPORTS from '../../../repeated_items/index';
-
-const LinearButton2 = IMPORTS.LINEAR_BUTTON_2;
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
+import { LinearButton2, Colors, fonts } from '@abdlarahman/ui-components';
 
 interface GiftCardProps {
   svg: string;

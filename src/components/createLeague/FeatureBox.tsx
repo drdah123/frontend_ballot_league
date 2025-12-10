@@ -1,11 +1,7 @@
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import { icons } from './icons';
-import IMPORTS from '../../../repeated_items/index';
-
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const sharedIcons = IMPORTS.SHARED_ICONS;
+import { Colors, fonts, sharedIcons } from '@abdlarahman/ui-components';
 
 interface FeatureBoxProps {
   img: string;

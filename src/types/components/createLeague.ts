@@ -1,8 +1,7 @@
-import IMPORTS from '../../../repeated_items/index';
 import { CreateLeagueInput } from '../league';
 
-const { RoomBackgroundType } = IMPORTS.STORE_TYPES;
-const { Achievement } = IMPORTS.PROFILE_TYPES;
+type RoomBackgroundType = any;
+type Achievement = any;
 
 export type SetLeagueHandler = <K extends keyof CreateLeagueInput>(
   name: K,

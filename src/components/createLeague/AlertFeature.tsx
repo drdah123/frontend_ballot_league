@@ -1,13 +1,13 @@
 import { BlurView } from 'expo-blur';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import IMPORTS from '../../../repeated_items/index';
+import {
+  Colors,
+  fonts,
+  TwoCards,
+  cardsImages,
+  backgroundsImages,
+} from '@abdlarahman/ui-components';
 import { CreateLeagueInput } from '../../types/league';
-
-const Colors = IMPORTS.COLORS;
-const fonts = IMPORTS.FONTS;
-const TwoCards = IMPORTS.TWO_CARDS;
-const cardsImages = IMPORTS.CARDS_IMAGES;
-const backgroundsImages = IMPORTS.BACKGROUNDS_IMAGES;
 import {
   LeagueFeature,
   ModalKeys,
