@@ -13,6 +13,9 @@ import { BlurView } from 'expo-blur';
 // @ts-ignore
 import Countdown from 'react-native-countdown-timer-hooks';
 import { LeagueType } from '../../types/league';
+// TODO: Import LeagueTypeType from parent app or define locally
+// import { LeagueTypeType } from '../../../repeated_items/types/Leagues';
+type LeagueTypeType = any;
 import {
   LinearButton2,
   fonts,
@@ -23,8 +26,10 @@ import {
   cardsImages,
   sharedIcons,
 } from '@abdlarahman/ui-components';
-
-type LeagueTypeType = any;
+// TODO: Import these from parent app or pass as props
+// import { icons } from '../../../repeated_items/components/chat/icons';
+// import LeagueIcons from '../../../repeated_items/assets/league/icons';
+// import changeLeagueRound from '../../../repeated_items/utils/changeLeageRound';
 
 const { setWidth, setHeight } = Display;
 

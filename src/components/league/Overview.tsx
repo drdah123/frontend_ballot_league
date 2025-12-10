@@ -13,6 +13,10 @@ import {
 } from '@abdlarahman/ui-components';
 import GradientText from './GradientText ';
 import { LeagueType } from '../../types/league';
+// TODO: Import these from parent app or pass as props
+// import { icons } from '../../../repeated_items/components/chat/icons';
+// import { svgs } from '../../../repeated_items/components/friends/svg';
+// import styles from '../../../repeated_items/components/friends/Index';
 
 const { setWidth } = Display;
 

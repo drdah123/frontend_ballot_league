@@ -33,18 +33,16 @@ export default function Chat({
   selectedTab,
   leagueChat,
   setLeagueChat,
-  user,
 }: {
   leagueId: string;
   selectedTab: 'overview' | 'plan' | 'chat';
   leagueChat: ChatPageSub[] | null;
   setLeagueChat: React.Dispatch<React.SetStateAction<ChatPageSub[] | null>>;
-  user: any;
 }) {
   const [message, setMessage] = useState('');
   const [actionButtonUser, setActionButtonUser] =
     useState<ActionButtonsType>(null);
-  const setChat: React.Dispatch<React.SetStateAction<any[] | undefined>> = (value) => {
+  function setChat(value: React.SetStateAction<ChatMessage[] | undefined>) {
     // Handle both function and direct value forms of setState
     if (typeof value === 'function') {
       // If it's a function, we need to call it with current chat state
@@ -52,20 +50,12 @@ export default function Chat({
         leagueChat?.map((chatPageSub) => ({
           _id: chatPageSub._id,
           text: chatPageSub.text,
-          sender: {
-            _id: chatPageSub.sender._id,
-            name: chatPageSub.sender.name,
-            pic: chatPageSub.sender.pic,
-          },
+          sender: chatPageSub.sender,
         })) || [];
       const newChat = value(currentChat);
       if (newChat && newChat.length > 0) {
-        const editedChat: ChatPageSub[] = newChat.map((message: any) => ({
+        const editedChat: ChatPageSub[] = newChat.map((message) => ({
           ...message,
-          sender: {
-            ...message.sender,
-            sub: leagueChat?.find((c) => c._id === message._id)?.sender.sub || { is: false },
-          },
           state: 'send_message' as const,
         }));
         setLeagueChat((prev) => {
@@ -75,12 +65,8 @@ export default function Chat({
       }
     } else if (value && value.length > 0) {
       // Direct value assignment - replace all chats
-      const editedChat: ChatPageSub[] = value.map((message: any) => ({
+      const editedChat: ChatPageSub[] = value.map((message) => ({
         ...message,
-        sender: {
-          ...message.sender,
-          sub: leagueChat?.find((c) => c._id === message._id)?.sender.sub || { is: false },
-        },
         state: 'send_message' as const,
       }));
       setLeagueChat((prev) => {
@@ -88,9 +74,9 @@ export default function Chat({
         return [...editedChat];
       });
     }
-  };
+  }
   const [sendMessage] = useMutation<
-    { sendMessage: { _id: string } },
+    MediaKeyMessageEvent,
     {
       leagueId: string;
       content: string;
@@ -141,7 +127,6 @@ export default function Chat({
             setActionButtonUser={setActionButtonUser}
             actionButtonUser={actionButtonUser}
             setChat={setChat}
-            user={user}
           />
         ) : (
           <View
@@ -169,7 +154,7 @@ export default function Chat({
                 }}
               >
                 <TouchableOpacity onPress={handleSendMessage}>
-                  <SvgXml xml={svgs[0].send} />
+                  <SvgXml xml={svgs.send} />
                 </TouchableOpacity>
                 <TextInput
                   placeholder="رسالتك..."

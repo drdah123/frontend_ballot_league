@@ -16,7 +16,7 @@ import {
   Images,
   commonStyles,
   chatStyles,
-  friendsSvgs,
+  icons,
 } from '@abdlarahman/ui-components';
 import Overview from '../components/league/Overview';
 import Plan from '../components/league/Plan';
@@ -32,9 +32,9 @@ import Chat from '../components/league/Chat';
 import { useMutation } from '@apollo/client';
 import { LEAVE_LEAGUE } from '../schema/league';
 import { ToastType } from 'react-native-toast-notifications';
+import { svgs } from '../../repeated_items/components/friends/svg';
 
 const styles = chatStyles;
-const svgs = friendsSvgs;
 
 export default function League({
   league,
@@ -77,7 +77,10 @@ export default function League({
   );
 
   // Early returns after all hooks
-  if (!params) return router.back();
+  if (!params) {
+    router.back();
+    return null;
+  }
   if (!league) return null;
   async function leaveLeagueHandle() {
     const league = JSON.parse(params.league as string);
