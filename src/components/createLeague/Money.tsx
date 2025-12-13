@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { SvgXml } from 'react-native-svg';
 import DiamondBox from './DiamondBox';
-import { fonts, Colors } from '@abdlarahman/ui-components';
+import { fonts, Colors } from '@abdlarahman/shared';
 import { icons } from './icons';
 
 interface Money {

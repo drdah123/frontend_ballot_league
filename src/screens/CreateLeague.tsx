@@ -27,7 +27,7 @@ import {
   GET_FEATURES,
   GET_TITLES,
 } from '../schema/league';
-import type { UserDataType } from '@abdlarahman/ui-components';
+import type { UserDataType } from '@abdlarahman/shared';
 import FeatureModal from '../components/createLeague/FeatureModal';
 import AlertFeature from '../components/createLeague/AlertFeature';
 // import { useSelector } from 'react-redux'; // Should be passed as prop
@@ -56,7 +56,7 @@ import {
   Header,
   sharedIcons,
   getGraphQLErrors,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 import { ToastType } from 'react-native-toast-notifications';
 export default function CreateLeague({
   user,

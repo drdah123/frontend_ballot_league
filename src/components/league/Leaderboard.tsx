@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import { useFocusEffect } from 'expo-router/build/exports';
 import CreateLeagueButton from './CreateLeagueButton';
-import { Colors, fonts, friendsSvgs } from '@abdlarahman/ui-components';
+import { Colors, fonts, friendsSvgs } from '@abdlarahman/shared';
 
 type LeagueTypeType = any;
 const svgs = friendsSvgs;

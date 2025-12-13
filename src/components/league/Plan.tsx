@@ -13,7 +13,7 @@ import Animated, {
   clamp,
   withSpring,
 } from 'react-native-reanimated';
-import { Colors, fonts, chatStyles } from '@abdlarahman/ui-components';
+import { Colors, fonts, chatStyles } from '@abdlarahman/shared';
 import Match from './Match';
 import { ApiMatch, IMatch } from '../../types/league';
 

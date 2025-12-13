@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Eye } from 'iconsax-react-native';
-import { Colors, fonts, Images } from '@abdlarahman/ui-components';
+import { Colors, fonts, Images } from '@abdlarahman/shared';
 import { ApiMatch } from '../../types/league';
 
 interface DynamicComponentProps {

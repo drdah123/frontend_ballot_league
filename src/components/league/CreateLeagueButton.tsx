@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Colors, Display, fonts, AppBlur } from '@abdlarahman/ui-components';
+import { Colors, Display, fonts, AppBlur } from '@abdlarahman/shared';
 
 const { setWidth, setHeight } = Display;
 

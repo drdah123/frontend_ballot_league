@@ -6,7 +6,7 @@ import {
   TwoCards,
   cardsImages,
   backgroundsImages,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 import { CreateLeagueInput } from '../../types/league';
 import {
   LeagueFeature,

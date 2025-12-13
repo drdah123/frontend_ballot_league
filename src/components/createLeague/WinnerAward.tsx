@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { SvgXml } from 'react-native-svg';
 import { useEffect, useMemo, useState } from 'react';
-import { fonts, Colors, LinearButton2 } from '@abdlarahman/ui-components';
+import { fonts, Colors, LinearButton2 } from '@abdlarahman/shared';
 import { icons } from './icons';
 import { CreateLeagueInput } from '../../types/league';
 import {

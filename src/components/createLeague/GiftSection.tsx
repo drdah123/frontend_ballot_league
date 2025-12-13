@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import GiftCard from './GiftCard';
-import { Colors, fonts } from '@abdlarahman/ui-components';
+import { Colors, fonts } from '@abdlarahman/shared';
 
 interface GiftSectionProps {
   title?: string;

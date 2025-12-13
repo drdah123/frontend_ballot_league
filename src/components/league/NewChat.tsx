@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import { Colors, fonts, friendsSvgs } from '@abdlarahman/ui-components';
+import { Colors, fonts, friendsSvgs } from '@abdlarahman/shared';
 
 const svgs = friendsSvgs;
 

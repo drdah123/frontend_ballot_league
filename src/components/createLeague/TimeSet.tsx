@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { BlurView } from 'expo-blur';
 import { useState, useRef, useEffect, useCallback, memo } from 'react';
-import { fonts, Colors, LinearButton } from '@abdlarahman/ui-components';
+import { fonts, Colors, LinearButton } from '@abdlarahman/shared';
 import { CreateLeagueInput } from '../../types/league';
 
 // Memoized TimeItem component for better performance

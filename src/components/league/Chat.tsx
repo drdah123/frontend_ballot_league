@@ -24,7 +24,7 @@ import {
   chatStyles,
   friendsSvgs,
   Messages,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 
 const styles = chatStyles;
 const svgs = friendsSvgs;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import { LinearButton2, Colors, fonts } from '@abdlarahman/ui-components';
+import { LinearButton2, Colors, fonts } from '@abdlarahman/shared';
 
 interface GiftCardProps {
   svg: string;

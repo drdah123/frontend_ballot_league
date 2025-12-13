@@ -1,6 +1,6 @@
 import { BlurView } from 'expo-blur';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Colors, fonts, LinearButton } from '@abdlarahman/ui-components';
+import { Colors, fonts, LinearButton } from '@abdlarahman/shared';
 import { SetLeagueHandler } from '../../types/components/createLeague';
 
 type Props = {

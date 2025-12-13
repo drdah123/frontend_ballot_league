@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { SvgXml } from 'react-native-svg';
 import { useState } from 'react';
-import { fonts, Colors, LinearButton2 } from '@abdlarahman/ui-components';
+import { fonts, Colors, LinearButton2 } from '@abdlarahman/shared';
 import { icons } from './icons';
 
 interface LeagueSettingsModal2 {

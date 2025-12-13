@@ -8,7 +8,7 @@ import {
   LinearButton2,
   sharedIcons,
   SelectRoom,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 import { icons } from './icons';
 import { CreateLeagueInput } from '../../types/league';
 import {

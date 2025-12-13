@@ -7,9 +7,9 @@
   resolved "https://registry.yarnpkg.com/@0no-co/graphql.web/-/graphql.web-1.2.0.tgz#296d00581bfaaabfda1e976849d927824aaea81b"
   integrity sha512-/1iHy9TTr63gE1YcR5idjx8UREz1s0kFhydf3bBLCXyqjhkIc6igAzTOx3zPifCwFR87tsh/4Pa9cNts6d2otw==
 
-"@abdlarahman/ui-components@file:./abdlarahman-ui-components-1.0.21.tgz":
-  version "1.0.21"
-  resolved "file:./abdlarahman-ui-components-1.0.21.tgz#15a2c3c04f3e2dcef170412da7cf21ca3a9676f4"
+"@abdlarahman/shared@file:../shared/abdlarahman-shared-v1.0.30.tgz":
+  version "1.0.30"
+  resolved "file:../shared/abdlarahman-shared-v1.0.30.tgz#37a59a5f50ba3729904652a185ec0cd3e93bd9bf"
 
 "@apollo/client@^3.11.10":
   version "3.14.0"

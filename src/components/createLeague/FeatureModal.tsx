@@ -15,7 +15,7 @@ import {
   LinearButton2,
   backgroundsImages,
   cardsImages,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 import FeatureCard from './FeatureCard';
 import {
   LeagueFeature,

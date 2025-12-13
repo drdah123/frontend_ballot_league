@@ -25,7 +25,7 @@ import {
   Images,
   cardsImages,
   sharedIcons,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 // TODO: Import these from parent app or pass as props
 // import { icons } from '../../../repeated_items/components/chat/icons';
 // import LeagueIcons from '../../../repeated_items/assets/league/icons';

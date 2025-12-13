@@ -10,7 +10,7 @@ import {
   Display,
   AvatarWith4Cards,
   sharedIcons,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 import GradientText from './GradientText ';
 import { LeagueType } from '../../types/league';
 // TODO: Import these from parent app or pass as props

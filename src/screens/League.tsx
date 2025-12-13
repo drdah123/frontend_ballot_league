@@ -17,7 +17,7 @@ import {
   commonStyles,
   chatStyles,
   icons,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 import Overview from '../components/league/Overview';
 import Plan from '../components/league/Plan';
 import GradientText from '../components/league/GradientText ';

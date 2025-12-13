@@ -8,7 +8,7 @@ import {
   getGraphQLErrors,
   friendsSvgs,
   chatIcons,
-} from '@abdlarahman/ui-components';
+} from '@abdlarahman/shared';
 
 type LeagueTypeType = any;
 const svgs = friendsSvgs;

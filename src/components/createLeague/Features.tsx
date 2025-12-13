@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { BlurView } from 'expo-blur';
 import FeatureBox from './FeatureBox';
-import { fonts, Colors, Display } from '@abdlarahman/ui-components';
+import { fonts, Colors, Display } from '@abdlarahman/shared';
 import { icons } from './icons';
 import { CreateLeagueInput } from '../../types/league';
 import { LeagueFeature, ModalKeys } from '../../types/components/createLeague';
