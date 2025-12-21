@@ -6,7 +6,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import cardsImages from '../../constants/cardsImages';
+import { cardsImages } from '@abdlarahman/shared';
 
 export default function TwoCards({
   img,

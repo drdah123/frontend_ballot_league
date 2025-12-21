@@ -1,21 +1,10 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  ViewStyle,
-  Dimensions,
-  Image,
-} from 'react-native';
+import { View, Text, ViewStyle, Dimensions, Image } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
-import Colors from '../../constants/Colors';
+import { Colors, fonts, Images, cardsImages } from '@abdlarahman/shared';
 import { svgs } from '../friends/svg';
-import fonts from '../../constants/fonts';
 import { OtherUserType } from '../../types/ApiTypes';
-import Images from '../../constants/Images';
-import cardsImages from '../../constants/cardsImages';
 
 function Mix({
   linearStyle,

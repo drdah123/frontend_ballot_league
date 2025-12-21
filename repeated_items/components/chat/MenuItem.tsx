@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { MenuItemProps } from './PlayerMenu';
-import fonts from '../../constants/fonts';
-import Colors from '../../constants/Colors';
+import { fonts, Colors } from '@abdlarahman/shared';
 
 export default function MenuItem({ text, onPress }: MenuItemProps) {
   return (

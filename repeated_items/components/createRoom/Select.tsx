@@ -6,12 +6,10 @@ import {
   FlatList,
   StyleSheet,
 } from 'react-native';
-import React, { JSX, useState } from 'react';
+import React, { useState } from 'react';
 import { SvgXml } from 'react-native-svg';
 import { svgs } from '../../assets/Svg/svg';
-import Colors from '../../constants/Colors';
-import fonts from '../../constants/fonts';
-import Display from '../../utils/Display';
+import { Colors, fonts, Display } from '@abdlarahman/shared';
 import sharedIcons from '../../assets/shared/sharedIcons';
 import { Select } from '../../types/components/createLeague';
 

@@ -2,13 +2,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import changeLevelsToAR from '../../utils/changeLevelsToAR';
 import { Image } from 'react-native';
-import Colors from '../../constants/Colors';
-import fonts from '../../constants/fonts';
+import { Colors, fonts, Images, Display } from '@abdlarahman/shared';
 import { icons } from '../chat/icons';
-import Images from '../../constants/Images';
 import { UserCard } from './UserCard';
 import { BlurView } from 'expo-blur';
-import Display from '../../utils/Display';
 
 export default function HeaderProfileCard({
   user,

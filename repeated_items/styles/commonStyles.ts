@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../constants/Colors';
-import fonts from '../constants/fonts';
+import { Colors, fonts } from '@abdlarahman/shared';
 
 // Common shadow and container styles used throughout the app
 export const textStyles = StyleSheet.create({

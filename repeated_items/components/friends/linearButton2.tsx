@@ -7,8 +7,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import { ReactNode } from 'react';
-import Colors from '../../constants/Colors';
-import fonts from '../../constants/fonts';
+import { Colors, fonts } from '@abdlarahman/shared';
+
 interface BasicProps {
   onPress: () => void;
   containerStyle?: ViewStyle;

@@ -6,9 +6,8 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import Colors from '../../constants/Colors';
+import { Colors, fonts } from '@abdlarahman/shared';
 import { ReactNode } from 'react';
-import fonts from '../../constants/fonts';
 interface BasicProps {
   onPress: () => void;
   containerStyle?: ViewStyle;

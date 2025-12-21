@@ -7,12 +7,9 @@ import {
   ViewStyle,
 } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import Colors from '../../constants/Colors';
-import cardsImages from '../../constants/cardsImages';
+import { Colors, cardsImages, Images, fonts } from '@abdlarahman/shared';
 import { LeagueType } from '../../types/league';
-import Images from '../../constants/Images';
 import { icons } from '../chat/icons';
-import fonts from '../../constants/fonts';
 
 export default function AvatarWith4Cards({
   league,

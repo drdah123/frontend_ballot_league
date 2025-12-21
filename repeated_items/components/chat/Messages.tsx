@@ -7,16 +7,13 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import fonts from '../../constants/fonts';
-import Colors from '../../constants/Colors';
+import { fonts, Colors, Display, Images } from '@abdlarahman/shared';
 import { ActionButtonsType, ChatMessage } from '../../app/(tabs)/Chat';
-import Display from '../../utils/Display';
 import { useSelector } from 'react-redux';
 import { UserDataType } from '../../reducers/GeneralReducer';
 import { useUserCardModal } from '../../context/userCardModalContext';
 import { RootState } from '../../store';
 import PlayerMenu from './PlayerMenu';
-import Images from '../../constants/Images';
 
 // ? maybe there is problem with touch massage because of margin bottom with the same sender
 export default function Messages({

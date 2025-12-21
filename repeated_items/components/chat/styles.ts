@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../../constants/Colors';
-import fonts from '../../constants/fonts';
+import { Colors, fonts } from '@abdlarahman/shared';
 
 const styles = StyleSheet.create({
   viewContainer: {

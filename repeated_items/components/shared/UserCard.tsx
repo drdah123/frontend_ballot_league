@@ -8,9 +8,7 @@ import {
 import React, { useMemo, useState } from 'react';
 import { SvgXml } from 'react-native-svg';
 import { icons } from '../chat/icons';
-import Colors from '../../constants/Colors';
-import fonts from '../../constants/fonts';
-import Display from '../../utils/Display';
+import { Colors, fonts, Display } from '@abdlarahman/shared';
 import {
   MessageWithSuccess,
   RealPlayerType,

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../../constants/Colors';
+import { Colors } from '@abdlarahman/shared';
+
 const styles = StyleSheet.create({
   viewContainer: {
     flexGrow: 1,

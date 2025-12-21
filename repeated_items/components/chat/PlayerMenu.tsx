@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MenuItem from './MenuItem';
-import Colors from '../../constants/Colors';
+import { Colors } from '@abdlarahman/shared';
 import { SvgXml } from 'react-native-svg';
 import { icons } from './icons';
 import { useDispatch, useSelector } from 'react-redux';
