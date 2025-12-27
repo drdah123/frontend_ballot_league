@@ -1,6 +1,6 @@
 {
   "name": "@abdlarahman/frontend-league",
-  "version": "1.0.26",
+  "version": "2.0.4",
   "description": "League module for Ballot frontend application",
   "main": "index.ts",
   "types": "index.ts",
@@ -38,7 +38,7 @@
     "react-native-countdown-timer-hooks": "^1.0.5"
   },
   "peerDependencies": {
-    "@abdlarahman/shared": "file:../shared/abdlarahman-shared-1.0.42.tgz",
+    "@abdlarahman/shared": "file:../shared/abdlarahman-shared-2.0.3.tgz",
     "@apollo/client": "^3.11.10",
     "@expo/vector-icons": "^14.0.3",
     "expo": "~53.0.23",
@@ -55,7 +55,7 @@
     "react-native-toast-notifications": "^3.4.0"
   },
   "devDependencies": {
-    "@abdlarahman/shared": "file:../shared/abdlarahman-shared-1.0.42.tgz",
+    "@abdlarahman/shared": "file:../shared/abdlarahman-shared-2.0.3.tgz",
     "@apollo/client": "^3.14.0",
     "@babel/core": "^7.24.0",
     "@expo/vector-icons": "^14.0.3",
